@@ -1,0 +1,24 @@
+plugins {
+    id("java")
+}
+
+//group = "org.springframework"
+group = "com.lagou"
+version = "5.1.21.BUILD-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(path: ':spring-context')
+    implementation project(path: ':spring-beans')
+    implementation(group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.6')
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation project(path: ':spring-context')
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
